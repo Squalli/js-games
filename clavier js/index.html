@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <p id="screen"></p>
+    
+    <div id="clavier">
+        <div class="ligne"></div>
+        <div class="ligne"></div>
+        <div class="ligne"></div>
+    </div>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        
+            $(".touche").click(function(){
+                $(".touche").removeClass("click")
+                $(this).addClass("click")
+                lettre = $(this).text()
+                
+                $("#screen").append(lettre)
+
+            })
+            
+            $(".touche.clear").click(function(){
+                $("#screen").text("")
+
+            })
+        })
+        
+        lettres = "AZERTYUIOPQSDFGHJKLMWXCVBN"
+        array_lettres = lettres.split('');
+       
+        ligne = $("#clavier").children(".ligne")[0]
+        $ligne = $(ligne)
+        
+        for(var i = 0; i < array_lettres.length; i++){
+            $ligne.append("<div class='touche'>"+array_lettres[i]+"</div>")
+          
+            if(array_lettres[i] == "P" || array_lettres[i] == "M"){
+                $ligne = $($ligne).next()
+            }
+        }
+        $ligne.append("<div class='touche clear'>Clear</div>")
+        
+        
+    </script>
+</body>
+</html>

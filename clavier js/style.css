@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+}
+
+#clavier{
+    height: 50vh;
+    overflow: hidden;
+}
+
+#clavier div.ligne{
+    display: flex;
+    justify-content: center;
+}
+.touche{
+    padding: 1em;
+    background-color: #ddd;
+    color: #888;
+    text-align: center;
+    border-radius: 6px;
+    min-width: 3em;
+    height: 3em;
+    margin: 0.5em;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 1s, background-color 2s, font-size 1s, color 1s, width 1s, height 1s, margin 1s;
+   
+}
+.touche:hover{
+    transform: scale(1.3);
+}
+.touche.click{
+    color: #fff; 
+    background-color: #45d210;    
+}
+.touche{
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-timing-function: ease;
+}
+
+@keyframes slidein {
+  from {
+    margin-top: 100%;
+    margin-left: 100%;
+    
+  }
+  
+  15%{
+    transform: rotate(360deg); 
+  }
+  
+
+  to {
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+   
+  }
+}
+
+
+
+#screen{
+    padding: 0 0.5em;
+    font-size: 1.5em;
+    line-height: 2em;
+    background-color: #a4d478;
+    color: #129942;
+    font-family: "Lucida Console", sans-serif;
+    min-height: 2em;
+}
+@media all and (min-width:1200px){
+    .touche{
+       
+       
+        font-size: 1.5em;    
+    }
+}
+@media all and (max-width:650px){
+    .touche{
+        
+        margin: 0.2em;
+        font-size: 0.8em;    
+    }
+}
